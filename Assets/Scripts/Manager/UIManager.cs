@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : Singleton<UIManager>
 {
@@ -9,6 +10,17 @@ public class UIManager : Singleton<UIManager>
     {
         
     }
+
+    public void Play()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
 
     // Update is called once per frame
     void Update()
