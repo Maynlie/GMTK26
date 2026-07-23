@@ -7,20 +7,27 @@ using UnityEngine.SceneManagement;
 public class GameLoopUIManager : MonoBehaviour
 {
     public InputActionReference pauseActionRef;
-    bool isPaused = false, justChanged = false;
+    bool isPaused = false;
     public GameObject pauseLayer, gameLayer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        pauseActionRef.action.started += TogglePause;
     }
 
     public void Resume()
     {
         isPaused = false;
-        justChanged = true;
         pauseLayer.SetActive(false);
         gameLayer.SetActive(true);
+    }
+
+    public void TogglePause(InputAction.CallbackContext context) 
+    {
+        isPaused = !isPaused;
+        pauseLayer.SetActive(isPaused);
+        gameLayer.SetActive(!isPaused);
+        
     }
 
     public void BackToMenu()
@@ -31,23 +38,6 @@ public class GameLoopUIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pauseActionRef.action.ReadValue<float>() > 0.0f && !justChanged)
-        {
-            if (!isPaused)
-            {
-                isPaused = true;
-                justChanged = true;
-                pauseLayer.SetActive(true);
-                gameLayer.SetActive(false);
-            }
-            else 
-            {
-                Resume();
-            }
-        }
-        if(pauseActionRef.action.ReadValue<float>() == 0.0f)
-        {
-            justChanged = false;
-        }
+        
     }
 }
