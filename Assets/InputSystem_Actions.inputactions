@@ -14,6 +14,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "GiveOrder[DEBUG]",
+                    "type": "Button",
+                    "id": "7826c4b3-b38e-44ac-8d7f-358a86fddf7a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -49,6 +58,17 @@
                     "action": "MoveSide",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "e1277922-ade7-4603-a003-d94b40467ecd",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GiveOrder[DEBUG]",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

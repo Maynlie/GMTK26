@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class KioskController : MonoBehaviour
 {
@@ -12,12 +13,15 @@ public class KioskController : MonoBehaviour
 
     private Position currentPosition = Position.Center;
     public InputActionReference MoveDirectionAction;
+    public InputActionReference GiveOrderAction;
     public Camera Camera;
+    public LutinBehavior[] lutins;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         MoveDirectionAction.action.performed += MovePOV;
+        GiveOrderAction.action.performed += GiveOrder;
     }
 
     private void MovePOV(InputAction.CallbackContext context)
@@ -39,6 +43,17 @@ public class KioskController : MonoBehaviour
             {
                 currentPosition--;
                 Camera.transform.Rotate(new Vector2(0, -90));
+            }
+        }
+    }
+
+    private void GiveOrder(InputAction.CallbackContext context)
+    {
+        foreach (LutinBehavior lut in lutins)
+        {
+            if(lut.GetCurrentState() == LutinBehavior.LutinState.WaitingForOrder)
+            {
+                lut.ReceiveOrder(new Vector2Int(1, 1)); // Example order, replace with actual logic
             }
         }
     }
