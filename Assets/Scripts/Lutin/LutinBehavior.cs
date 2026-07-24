@@ -25,23 +25,30 @@ public class LutinBehavior : MonoBehaviour
     LutinState previousState;
     Vector2Int giftPosition = new Vector2Int(0,0);
     public PathFollower follow;
-    PathGenerator path;
+    public PathGenerator path;
     Vector3 deskPos, shelvePos, startLine, middleLine, startRushPos, endRudhPos;
     float waitingTime = 0f;
     public float startSpeed;
     float distancehreshold = 0.5f;
     float distaMinImp = 1.5f;
-    int stepInLine = 0;
     public LutinType lutinType;
     public LutinBehavior previousImp;
     bool initEnded;
+    public Animator anim;
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         if (lutinType == LutinType.Bob)
         {
-            path = follow.Generator;
+            if(follow.Generator == null)
+            {
+                follow.Generator = path;
+            }
+
             deskPos = follow.Generator.NodeList_World[0];
             shelvePos = follow.Generator.NodeList_World[1];
             startLine = follow.Generator.NodeList_World[5];
@@ -84,6 +91,7 @@ public class LutinBehavior : MonoBehaviour
         giftPosition = order;
         currentState = LutinState.GoingToShelves; 
         follow.IsMove = true;
+        anim.SetBool("IsWalking", true);
         if(!previousImp.initEnded)
         {
             previousImp.InitGoToDesk();
@@ -95,12 +103,15 @@ public class LutinBehavior : MonoBehaviour
         currentState = LutinState.SearchingGift;
         waitingTime = 2.0f;
         follow.IsMove = false;
+        anim.SetBool("IsWalking", false);
     }
 
     void GiftFound()
     {
         currentState = LutinState.GoingBackstage;
         follow.IsMove = true;
+        anim.SetBool("IsWalking", true);
+        anim.SetBool("IsCarrying", true);
     }
 
     void OtherImpDetected()
@@ -112,6 +123,7 @@ public class LutinBehavior : MonoBehaviour
         }
        
         follow.IsMove = false;
+        anim.SetBool("IsWalking", false);
     }
 
     void DeskDetected()
@@ -123,6 +135,7 @@ public class LutinBehavior : MonoBehaviour
         }
         currentState = LutinState.WaitingForOrder;
         follow.IsMove = false;
+        anim.SetBool("IsWalking", false);
     }
 
     
@@ -159,6 +172,7 @@ public class LutinBehavior : MonoBehaviour
                 if (Vector3.Distance(transform.position, startRushPos) <= distancehreshold)
                 {
                     follow.Speed = 600.0f; // Increase speed for rush
+                    anim.SetBool("IsCarrying", false);
                 }
                 else if (Vector3.Distance(transform.position, endRudhPos) <= distancehreshold)
                 {
@@ -179,8 +193,9 @@ public class LutinBehavior : MonoBehaviour
                 break;
             case LutinState.InitGoToDesk:
                 Vector3 direction = (deskPos - transform.position).normalized;
-                transform.position += direction * startSpeed * Time.deltaTime;
-                if(Vector3.Distance(transform.position, deskPos) <= distancehreshold)
+                transform.position += direction * Time.deltaTime * 1.5f;
+                anim.SetBool("IsWalking", true);
+                if (Vector3.Distance(transform.position, deskPos) <= distancehreshold)
                 {
                     DeskDetected();
                 }
