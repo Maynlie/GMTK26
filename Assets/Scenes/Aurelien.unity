@@ -504,6 +504,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4867702573748511033, guid: 76fef6fa73fabd27380f3e912efae293, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 02646b75cc1eadb408f11557e5b27afb, type: 2}
     - target: {fileID: 8292231909598163203, guid: 76fef6fa73fabd27380f3e912efae293, type: 3}
       propertyPath: m_Name
       value: Elf
