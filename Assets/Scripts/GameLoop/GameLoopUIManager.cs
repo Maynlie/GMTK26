@@ -8,7 +8,7 @@ public class GameLoopUIManager : MonoBehaviour
 {
     public InputActionReference pauseActionRef;
     bool isPaused = false;
-    public GameObject pauseLayer, gameLayer;
+    public GameObject pauseLayer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,16 +18,18 @@ public class GameLoopUIManager : MonoBehaviour
     public void Resume()
     {
         isPaused = false;
+        Time.timeScale = 1;
         pauseLayer.SetActive(false);
-        gameLayer.SetActive(true);
+        //gameLayer.SetActive(true);
     }
 
     public void TogglePause(InputAction.CallbackContext context) 
     {
         isPaused = !isPaused;
         pauseLayer.SetActive(isPaused);
-        gameLayer.SetActive(!isPaused);
-        
+        Time.timeScale = isPaused ? 0 : 1;
+        //gameLayer.SetActive(!isPaused);
+
     }
 
     public void BackToMenu()

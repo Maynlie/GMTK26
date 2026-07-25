@@ -14,18 +14,23 @@ public class KioskController : MonoBehaviour
     private Position currentPosition = Position.Center;
     public InputActionReference MoveDirectionAction;
     public InputActionReference GiveOrderAction;
+    public InputActionReference GetInfoAction;
     public Camera Camera;
     public LutinBehavior[] lutins;
+    public GameObject ImpInfos;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         MoveDirectionAction.action.performed += MovePOV;
         GiveOrderAction.action.performed += GiveOrder;
+        GetInfoAction.action.performed += GetInfo;
     }
 
     private void MovePOV(InputAction.CallbackContext context)
     {
+        if(Time.timeScale == 0) return; // Do not move if the game is paused
+        if (ImpInfos.activeSelf) return;
         float moveValue = context.ReadValue<float>();
         if (moveValue > 0)
         {
@@ -49,6 +54,7 @@ public class KioskController : MonoBehaviour
 
     private void GiveOrder(InputAction.CallbackContext context)
     {
+        if(Time.timeScale == 0) return; // Do not give orders if the game is paused
         foreach (LutinBehavior lut in lutins)
         {
             if(lut.GetCurrentState() == LutinBehavior.LutinState.WaitingForOrder)
@@ -56,6 +62,13 @@ public class KioskController : MonoBehaviour
                 lut.ReceiveOrder(new Vector2Int(1, 1)); // Example order, replace with actual logic
             }
         }
+    }
+
+    private void GetInfo(InputAction.CallbackContext context)
+    {
+        if (Time.timeScale == 0) return;
+        if (currentPosition != Position.Center) return;
+        ImpInfos.SetActive(!ImpInfos.activeSelf);
     }
 
     // Update is called once per frame

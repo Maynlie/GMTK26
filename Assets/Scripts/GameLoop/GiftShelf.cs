@@ -70,4 +70,10 @@ public class GiftShelf : MonoBehaviour
 		giftPlaceholders[xA, yA].SetGift(giftPlaceholders[xB, yB].Gift);
 		giftPlaceholders[xB, yB].SetGift(temp);
 	}
+
+	public void ReturnGiftToPool(GameObject gift)
+	{
+		gift.transform.position = poolPosition.position;
+		giftPool.Enqueue(gift);
+	}
 }
