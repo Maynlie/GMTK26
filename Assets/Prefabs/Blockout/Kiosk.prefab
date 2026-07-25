@@ -124,6 +124,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5902723129102691472}
     m_Modifications:
+    - target: {fileID: 1873959338246651248, guid: c802113b6eafdcf429569d77c7609035, type: 3}
+      propertyPath: m_Name
+      value: LetterTable
+      objectReference: {fileID: 0}
     - target: {fileID: 6055967918560552903, guid: c802113b6eafdcf429569d77c7609035, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.66
@@ -169,7 +173,17 @@ PrefabInstance:
       value: Kiosque_PH
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5589983451774378463, guid: c802113b6eafdcf429569d77c7609035, type: 3}
+    - {fileID: 5525340146254358755, guid: c802113b6eafdcf429569d77c7609035, type: 3}
+    - {fileID: 8739884917104819686, guid: c802113b6eafdcf429569d77c7609035, type: 3}
+    - {fileID: 5213028798967558900, guid: c802113b6eafdcf429569d77c7609035, type: 3}
+    - {fileID: 1070457619736573350, guid: c802113b6eafdcf429569d77c7609035, type: 3}
+    - {fileID: 9154677954830320002, guid: c802113b6eafdcf429569d77c7609035, type: 3}
+    - {fileID: 9214243187744295077, guid: c802113b6eafdcf429569d77c7609035, type: 3}
+    - {fileID: 6992053085683152544, guid: c802113b6eafdcf429569d77c7609035, type: 3}
+    - {fileID: 6994507150078154588, guid: c802113b6eafdcf429569d77c7609035, type: 3}
+    - {fileID: 8622652597972921350, guid: c802113b6eafdcf429569d77c7609035, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c802113b6eafdcf429569d77c7609035, type: 3}

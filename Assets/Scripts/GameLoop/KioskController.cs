@@ -27,6 +27,13 @@ public class KioskController : MonoBehaviour
         GetInfoAction.action.performed += GetInfo;
     }
 
+    private void OnDisable()
+    {
+        MoveDirectionAction.action.performed -= MovePOV;
+        GiveOrderAction.action.performed -= GiveOrder;
+        GetInfoAction.action.performed -= GetInfo;
+    }
+
     private void MovePOV(InputAction.CallbackContext context)
     {
         if(Time.timeScale == 0) return; // Do not move if the game is paused

@@ -42,4 +42,9 @@ public class GameLoopUIManager : MonoBehaviour
     {
         
     }
+
+    private void OnDisable()
+    {
+        pauseActionRef.action.started -= TogglePause;
+    }
 }

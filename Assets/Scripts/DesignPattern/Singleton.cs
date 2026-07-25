@@ -11,11 +11,11 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 		if(instance == null)
 		{
 			instance = this as T;
+			DontDestroyOnLoad(gameObject);
 		}
 		else
 		{
-			string className = nameof(T);
-			Debug.LogError($"Instance of {className} is not null. Singleton must be the only one instance of {className}");
+			Destroy(gameObject);
 		}
 	}
 }

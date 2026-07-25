@@ -14,6 +14,16 @@ public class UIManager : Singleton<UIManager>
     public void Play()
     {
         SceneManager.LoadScene(1);
+        GameManager.Instance.ResetGameTime();
+        GameManager.Instance.SetInGame(true);
+        Time.timeScale = 1;
+
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
+        GameManager.Instance.SetInGame(false);
     }
 
     public void Quit()

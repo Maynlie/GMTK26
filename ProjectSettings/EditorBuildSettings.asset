@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameLoop.unity
     guid: 484c8ccc4abfb344ab91211f53e1c482
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: be8e496345303d9439c97da2acd018a0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
