@@ -10,17 +10,21 @@ public class GameManager : Singleton<GameManager>
 	#endregion
 
 	#region Unity Methods
-	float gameTime = 60.0f * 5.0f;
+	float startTime = 60.0f * 5.0f;
+    float gameTime;
 	bool inGame = false;
 	private void Start()
 	{
-
-	}
+		gameTime = startTime;
+    }
 
 	public void ResetGameTime()
 	{
-		gameTime = 60.0f * 5.0f;
+		gameTime = startTime;
 	}
+
+	public float GetGameTime() { return gameTime; }
+	public float GetSTartTime() { return startTime; }
 
 
     public void SetInGame(bool value) {

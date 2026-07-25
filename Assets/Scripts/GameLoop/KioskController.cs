@@ -19,6 +19,13 @@ public class KioskController : MonoBehaviour
     public LutinBehavior[] lutins;
     public GameObject ImpInfos;
 
+    public AudioSource source;
+    public AudioClip[] think;
+    public AudioClip[] ohoh;
+
+    float thinkTimer = 0f;
+    float thinkCooldown = 5f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -67,6 +74,9 @@ public class KioskController : MonoBehaviour
             if(lut.GetCurrentState() == LutinBehavior.LutinState.WaitingForOrder)
             {
                 lut.ReceiveOrder(new Vector2Int(1, 1)); // Example order, replace with actual logic
+                source.clip = ohoh[Random.Range(0, ohoh.Length)];
+                source.Play();
+                thinkTimer = 0f;
             }
         }
     }
@@ -81,6 +91,15 @@ public class KioskController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        thinkTimer += Time.deltaTime;
+        if(thinkTimer > thinkCooldown)
+        {
+            source.clip = think[Random.Range(0, think.Length)];
+            if(!source.isPlaying)
+            {
+                source.Play();
+            }
+            thinkTimer = 0f;
+        }   
     }
 }

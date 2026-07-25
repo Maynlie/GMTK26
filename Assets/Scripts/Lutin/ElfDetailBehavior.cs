@@ -13,11 +13,22 @@ public class ElfDetailBehavior : MonoBehaviour
     public TextMeshProUGUI impEffectText;
     public InputActionReference MoveDirectionAction;
 
+    public AudioSource audioSource;
+    public AudioClip open;
+    public AudioClip move;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         DisplayImpInfo();
         MoveDirectionAction.action.performed += MoveInfos;
+    }
+
+    private void OnEnable()
+    {
+        audioSource.clip = open;
+        audioSource.Play();
     }
 
     private void MoveInfos(InputAction.CallbackContext context)
@@ -35,7 +46,9 @@ public class ElfDetailBehavior : MonoBehaviour
 
     public void NextImp()
     {
-        if(type == LutinBehavior.LutinType.Didier)
+        audioSource.clip = move;
+        audioSource.Play();
+        if (type == LutinBehavior.LutinType.Didier)
         {
             type = LutinBehavior.LutinType.Bob;
         }
@@ -48,6 +61,8 @@ public class ElfDetailBehavior : MonoBehaviour
 
     public void PreviousImp()
     {
+        audioSource.clip = move;
+        audioSource.Play();
         if (type == LutinBehavior.LutinType.Bob)
         {
             type = LutinBehavior.LutinType.Didier;

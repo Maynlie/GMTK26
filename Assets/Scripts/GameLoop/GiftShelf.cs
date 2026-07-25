@@ -76,4 +76,17 @@ public class GiftShelf : MonoBehaviour
 		gift.transform.position = poolPosition.position;
 		giftPool.Enqueue(gift);
 	}
+
+	public void GiveImpGift(LutinBehavior.LutinType lutinType, Vector2Int order)
+	{
+		// Implementation for giving an important gift
+		switch(lutinType) {
+            case LutinBehavior.LutinType.Bob:
+                break;
+            case LutinBehavior.LutinType.Giselle:
+				break;
+            case LutinBehavior.LutinType.Didier:
+				break;
+        }
+	}
 }
