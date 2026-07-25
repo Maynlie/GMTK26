@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5359915411475490000, guid: c04a4dc67bd05c449815a3a58b031f5d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: df3e6db871261e94fa512ef8bf445d69, type: 2}
     - target: {fileID: 919132149155446097, guid: c04a4dc67bd05c449815a3a58b031f5d, type: 3}
       propertyPath: m_Name
       value: LD_Blockout
@@ -55,6 +59,14 @@ PrefabInstance:
     - target: {fileID: 1366278540751589237, guid: c04a4dc67bd05c449815a3a58b031f5d, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421757756544844364, guid: c04a4dc67bd05c449815a3a58b031f5d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 11e0e4ec9cc71bb46a8c409e8290dddb, type: 2}
+    - target: {fileID: 7143177632085264835, guid: c04a4dc67bd05c449815a3a58b031f5d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

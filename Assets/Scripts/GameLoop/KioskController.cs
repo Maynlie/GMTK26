@@ -29,6 +29,7 @@ public class KioskController : MonoBehaviour
 
     private void MovePOV(InputAction.CallbackContext context)
     {
+        if(Time.timeScale == 0) return; // Do not move if the game is paused
         if (ImpInfos.activeSelf) return;
         float moveValue = context.ReadValue<float>();
         if (moveValue > 0)
@@ -53,6 +54,7 @@ public class KioskController : MonoBehaviour
 
     private void GiveOrder(InputAction.CallbackContext context)
     {
+        if(Time.timeScale == 0) return; // Do not give orders if the game is paused
         foreach (LutinBehavior lut in lutins)
         {
             if(lut.GetCurrentState() == LutinBehavior.LutinState.WaitingForOrder)
@@ -64,6 +66,7 @@ public class KioskController : MonoBehaviour
 
     private void GetInfo(InputAction.CallbackContext context)
     {
+        if (Time.timeScale == 0) return;
         if (currentPosition != Position.Center) return;
         ImpInfos.SetActive(!ImpInfos.activeSelf);
     }
