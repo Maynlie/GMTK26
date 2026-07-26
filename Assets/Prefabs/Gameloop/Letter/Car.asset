@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67e749f2b7d7bc244ac0f5a2749ac2ee, type: 3}
+  m_Name: Car
+  m_EditorClassIdentifier: Assembly-CSharp::LetterData
+  contentList:
+  - I hope you are having a great day at the North Pole!  Could you please send me
+    a new Car? Cheers.
+  - I hope you are having a great day at the North Pole!  If possible, I would love
+    a shiny new vehicle to race around with. It would make my adventures even more
+    exciting. Cheers, Santa.
+  - "I hope you are having a great day at the North Pole!  I\u2019m wishing for something
+    with wheels that can take me far, even if it fits in my hands."

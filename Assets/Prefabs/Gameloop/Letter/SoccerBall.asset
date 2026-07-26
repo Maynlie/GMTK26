@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67e749f2b7d7bc244ac0f5a2749ac2ee, type: 3}
+  m_Name: SoccerBall
+  m_EditorClassIdentifier: Assembly-CSharp::LetterData
+  contentList:
+  - I hope you and your reindeer are doing okay!  I need a new soccer ballon to play
+    in my garden, the last one is blocked on neighbour's rooftop. You're wonderful.
+  - "I hope you're doing well.  I need a new soccer ball to play in my garden. My
+    last one is stuck on the neighbor\u2019s rooftop. You\u2019re wonderful, Santa."
+  - "I hope you're having fun preparing Christmas!  I\u2019m hoping for a round companion
+    that loves being kicked around the yard."

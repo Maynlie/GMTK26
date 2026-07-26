@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67e749f2b7d7bc244ac0f5a2749ac2ee, type: 3}
+  m_Name: Plush
+  m_EditorClassIdentifier: Assembly-CSharp::LetterData
+  contentList:
+  - I hope you're doing well.  I would like a plushy for Christmas this year. Thanks.
+  - I hope you're doing well, Santa. This Christmas, I would be so happy to welcome
+    a new soft and cuddly friend into my room. It would keep me company every night.
+    Thank you so much.
+  - I hope you're doing well. I dream of a tiny, fluffy companion to guard my dreams
+    while I sleep. You know the one.

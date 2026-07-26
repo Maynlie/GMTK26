@@ -48,6 +48,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beb07699098424a478dfe08b00dcb467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  letterData:
+  - {fileID: 11400000, guid: bd58a66ecdcb7334085cb8319f7f04b0, type: 2}
+  - {fileID: 11400000, guid: 9dc98794542994e488f3a2b2c6a64777, type: 2}
+  - {fileID: 11400000, guid: ee459b4346ac5dc40ab0a160a1056861, type: 2}
+  - {fileID: 11400000, guid: 2c5b3d94ca61e654db14bcf1a6e79b76, type: 2}
+  - {fileID: 11400000, guid: 29df2aac953bdb1479e321132dcddc94, type: 2}
+  - {fileID: 11400000, guid: 1b7f1803031485f42be7aa96b8e6e6df, type: 2}
+  - {fileID: 11400000, guid: ac4c01ecd2a1c704787cb014a9166ed2, type: 2}
+  - {fileID: 11400000, guid: fced529c054a02a4888188b56ebaf451, type: 2}
+  - {fileID: 11400000, guid: 3b125b2a387adb64ba8fdfa2929d99c1, type: 2}
+  - {fileID: 11400000, guid: 180ff62b3b452414881b3dfbe436153f, type: 2}
+  - {fileID: 11400000, guid: 7cbe6b6985408bf4b99d326635424a07, type: 2}
+  - {fileID: 11400000, guid: de23e83847430034c8a9e66bfc0f89fe, type: 2}
+  - {fileID: 11400000, guid: cbd3552ffeb1f9645ae11dc971996b78, type: 2}
+  - {fileID: 11400000, guid: 5e196ee7ca6e57a468ed7013418868b1, type: 2}
+  - {fileID: 11400000, guid: d27f4e210114b174dbb63dc4ddffd9b8, type: 2}
 --- !u!114 &9222663922951384312
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,10 +6,6 @@ using UnityEngine;
 public class Gift : ScriptableObject
 {
 	/// <summary>
-	///	Letter associated with the gift.
-	/// </summary>
-	[SerializeField] List<Letter> letters;
-	/// <summary>
 	/// Mesh corresponding to the gift with script or another. 
 	/// </summary>
 	[SerializeField] GameObject prefabs;

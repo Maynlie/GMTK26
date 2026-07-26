@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67e749f2b7d7bc244ac0f5a2749ac2ee, type: 3}
+  m_Name: Piano
+  m_EditorClassIdentifier: Assembly-CSharp::LetterData
+  contentList:
+  - I hope you're excited for Christmas just like I am!  I wanna this new piano to
+    practice with my mom. Love you!
+  - I hope your sleigh is almost ready for Christmas Eve!  I would love a new piano
+    so I can practice songs with my mom. It would mean a lot to me. Love you, Santa!
+  - "I hope you are not too busy getting all the presents ready!  I\u2019m dreaming
+    of a big instrument with black and white teeth that sings when touched."

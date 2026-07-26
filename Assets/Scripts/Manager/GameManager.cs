@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -5,18 +6,25 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
 
+	float startTime = 60.0f * 5.0f;
+	float gameTime;
+	bool inGame = false;
+
+	[SerializeField] LetterData[] letterData;
+	public LetterData selectedGift;
+	public string selectedToogle;
+
 	#region Properties
 
 	#endregion
 
 	#region Unity Methods
-	float startTime = 60.0f * 5.0f;
-    float gameTime;
-	bool inGame = false;
+
 	private void Start()
 	{
 		gameTime = startTime;
-    }
+		RandomGift();
+	}
 
 	public void ResetGameTime()
 	{
@@ -54,5 +62,15 @@ public class GameManager : Singleton<GameManager>
 	}
 
 	#endregion
+
+	public void RandomGift()
+	{
+		selectedGift = letterData[Random.Range(0, letterData.Length)];
+	}
+
+	public LetterData GetGift()
+	{
+		return selectedGift;
+	}
 
 }
