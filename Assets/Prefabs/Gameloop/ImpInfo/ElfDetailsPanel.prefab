@@ -1241,7 +1241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   type: 0
-  impImage: {fileID: 3794282312697952754}
+  impImage: {fileID: 8176091737690695718}
   impNameText: {fileID: 2451505856916311818}
   impDescriptionText: {fileID: 2075357560457231720}
   impEffectText: {fileID: 5490724629577174830}
@@ -1249,6 +1249,10 @@ MonoBehaviour:
   audioSource: {fileID: 5931014573497996381}
   open: {fileID: 8300000, guid: 97a82dafea094674b9d7b449fe7c7bfa, type: 3}
   move: {fileID: 8300000, guid: e788dc120a642764e974cc4f7fbb08ea, type: 3}
+  impTextures:
+  - {fileID: 2800000, guid: fbcbbd73b2e14d748aaf4b284b036e95, type: 3}
+  - {fileID: 2800000, guid: c5b2a17a0aaf9274fa8780cb6fab7a37, type: 3}
+  - {fileID: 2800000, guid: 5bb85a8d4b2e273408dc29399a63df0b, type: 3}
 --- !u!82 &5931014573497996381
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1489,7 +1493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 761333064436093557}
   - component: {fileID: 2627941490509795093}
-  - component: {fileID: 3794282312697952754}
+  - component: {fileID: 8176091737690695718}
   m_Layer: 5
   m_Name: ElfPhoto
   m_TagString: Untagged
@@ -1524,7 +1528,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7864584037498826227}
   m_CullTransparentMesh: 1
---- !u!114 &3794282312697952754
+--- !u!114 &8176091737690695718
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1533,9 +1537,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7864584037498826227}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -1544,16 +1548,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_Texture: {fileID: 2800000, guid: fbcbbd73b2e14d748aaf4b284b036e95, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &7926208727627480795
 GameObject:
   m_ObjectHideFlags: 0

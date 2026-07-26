@@ -7,7 +7,7 @@ public class ElfDetailBehavior : MonoBehaviour
 {
     public LutinBehavior.LutinType type;
 
-    public Image impImage;
+    public RawImage impImage;
     public TextMeshProUGUI impNameText;
     public TextMeshProUGUI impDescriptionText;
     public TextMeshProUGUI impEffectText;
@@ -17,9 +17,11 @@ public class ElfDetailBehavior : MonoBehaviour
     public AudioClip open;
     public AudioClip move;
 
+    [SerializeField] Texture2D[] impTextures;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+	// Start is called once before the first execution of Update after the MonoBehaviour is created
+	void Start()
     {
         DisplayImpInfo();
         MoveDirectionAction.action.performed += MoveInfos;
@@ -84,19 +86,19 @@ public class ElfDetailBehavior : MonoBehaviour
         switch (type)
         {
             case LutinBehavior.LutinType.Bob:
-                //impImage.sprite = Resources.Load<Sprite>("Sprites/Elves/Bob");
+                impImage.texture = impTextures[0];
                 impNameText.text = "Bob";
                 impDescriptionText.text = "Bob is a really clumsy elf";
                 impEffectText.text = "Effect: When picking an item on the shelf, all the others items of the same row will fall. The new items are randomly replaced.";
                 break;
             case LutinBehavior.LutinType.Giselle:
-                //impImage.sprite = Resources.Load<Sprite>("Sprites/Elves/Giselle");
+                impImage.texture = impTextures[1];
                 impNameText.text = "Giselle";
                 impDescriptionText.text = "Giselle has a poor eyesight";
                 impEffectText.text = "Effect: When a cell on the shelf is targeted, she will always take the item right of it.";
                 break;
             case LutinBehavior.LutinType.Didier:
-                //impImage.sprite = Resources.Load<Sprite>("Sprites/Elves/Didier");
+                impImage.texture = impTextures[2];
                 impNameText.text = "Didier";
                 impDescriptionText.text = "Didier has an alcohol issue";
                 impEffectText.text = "Effect: When picking a gift on the shelf, all the other gifts are randomly reshuffled.";
