@@ -36,6 +36,7 @@ public class LutinBehavior : MonoBehaviour
     bool initEnded;
     public Animator anim;
     public GiftShelf giftShelf;
+    public GameObject giftAnchor;
 
     public AudioClip[] walking;
     public AudioClip[] laughing;
@@ -112,16 +113,28 @@ public class LutinBehavior : MonoBehaviour
         waitingTime = 2.0f;
         follow.IsMove = false;
         anim.SetBool("IsWalking", false);
+
+        
     }
 
     void GiftFound()
     {
-        currentState = LutinState.GoingBackstage;
-        follow.IsMove = true;
-        anim.SetBool("IsWalking", true);
-        anim.SetBool("IsCarrying", true);
-        laughingSource.clip = laughing[1];
-        laughingSource.Play();
+        if(giftShelf.GetGiftAtCase(giftPosition.x, giftPosition.y) == null)
+        {
+            waitingTime = 2.0f;
+        }
+        else
+        {
+            currentState = LutinState.GoingBackstage;
+            follow.IsMove = true;
+            anim.SetBool("IsWalking", true);
+            anim.SetBool("IsCarrying", true);
+            laughingSource.clip = laughing[1];
+            laughingSource.Play();
+
+            giftShelf.GiveImpGift(this, giftPosition);
+        }
+        
     }
 
     void OtherImpDetected()
@@ -202,6 +215,7 @@ public class LutinBehavior : MonoBehaviour
                     isRushingBackStage = true;
                     follow.Speed = 600.0f; // Increase speed for rush
                     anim.SetBool("IsCarrying", false);
+                    giftShelf.ReturnGift(this);
                 }
                 else if (Vector3.Distance(transform.position, endRudhPos) <= distancehreshold)
                 {

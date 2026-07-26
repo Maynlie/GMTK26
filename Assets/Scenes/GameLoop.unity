@@ -294,6 +294,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 933e204cbaaad304fb0cb8356e83a9f7, type: 3}
+--- !u!114 &75689487 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6062126511119943284, guid: 933e204cbaaad304fb0cb8356e83a9f7, type: 3}
+  m_PrefabInstance: {fileID: 75689486}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e325592ade1dba41833b1947c11d8e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GiftShelf
 --- !u!1001 &134447272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -958,6 +969,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 251588464}
     - target: {fileID: 5793282233795316329, guid: 4343bccca97642149b54ee484d20e758, type: 3}
+      propertyPath: giftShelf
+      value: 
+      objectReference: {fileID: 75689487}
+    - target: {fileID: 5793282233795316329, guid: 4343bccca97642149b54ee484d20e758, type: 3}
       propertyPath: previousImp
       value: 
       objectReference: {fileID: 1063683494}
@@ -1107,6 +1122,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5793282233795316329, guid: 4343bccca97642149b54ee484d20e758, type: 3}
+      propertyPath: giftShelf
+      value: 
+      objectReference: {fileID: 75689487}
     - target: {fileID: 5793282233795316329, guid: 4343bccca97642149b54ee484d20e758, type: 3}
       propertyPath: lutinType
       value: 1
@@ -1320,6 +1339,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5793282233795316329, guid: 4343bccca97642149b54ee484d20e758, type: 3}
+      propertyPath: giftShelf
+      value: 
+      objectReference: {fileID: 75689487}
     - target: {fileID: 5793282233795316329, guid: 4343bccca97642149b54ee484d20e758, type: 3}
       propertyPath: lutinType
       value: 2

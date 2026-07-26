@@ -9,7 +9,10 @@ public class GiftPlaceholder : MonoBehaviour
 	public void SetGift(GameObject gift)
 	{
 		giftPrefab = gift;
-		giftPrefab.transform.position = transform.position;
+		if(giftPrefab != null)
+		{
+			giftPrefab.transform.position = transform.position;
+		}
 	}
 
 	public GameObject RemoveGift()
