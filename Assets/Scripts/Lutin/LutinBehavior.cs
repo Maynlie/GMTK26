@@ -35,8 +35,17 @@ public class LutinBehavior : MonoBehaviour
     public LutinBehavior previousImp;
     bool initEnded;
     public Animator anim;
+    public GiftShelf giftShelf;
+    public GameObject giftAnchor;
 
+    public AudioClip[] walking;
+    public AudioClip[] laughing;
 
+    public AudioSource walkSource;
+    public AudioSource laughingSource;
+
+    bool isRushingBackStage = false;
+    int indexWalkingClip = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -104,14 +113,28 @@ public class LutinBehavior : MonoBehaviour
         waitingTime = 2.0f;
         follow.IsMove = false;
         anim.SetBool("IsWalking", false);
+
+        
     }
 
     void GiftFound()
     {
-        currentState = LutinState.GoingBackstage;
-        follow.IsMove = true;
-        anim.SetBool("IsWalking", true);
-        anim.SetBool("IsCarrying", true);
+        if(giftShelf.GetGiftAtCase(giftPosition.x, giftPosition.y) == null)
+        {
+            waitingTime = 2.0f;
+        }
+        else
+        {
+            currentState = LutinState.GoingBackstage;
+            follow.IsMove = true;
+            anim.SetBool("IsWalking", true);
+            anim.SetBool("IsCarrying", true);
+            laughingSource.clip = laughing[1];
+            laughingSource.Play();
+
+            giftShelf.GiveImpGift(this, giftPosition);
+        }
+        
     }
 
     void OtherImpDetected()
@@ -136,9 +159,27 @@ public class LutinBehavior : MonoBehaviour
         currentState = LutinState.WaitingForOrder;
         follow.IsMove = false;
         anim.SetBool("IsWalking", false);
+        laughingSource.clip = laughing[0];
+        laughingSource.Play();
     }
 
-    
+    void PlayWalkingSound()
+    {
+        if (walkSource != null && walking.Length > 0 && !walkSource.isPlaying)
+        {
+            if(anim.GetBool("IsWalking") && !isRushingBackStage)
+            {
+                indexWalkingClip++;
+                if(indexWalkingClip > walking.Length - 1) {
+                    indexWalkingClip = 0;
+                }
+                walkSource.clip = walking[indexWalkingClip];
+                walkSource.Play();
+            }
+        }
+    }
+
+
 
     // Update is called once per frame
     void Update()
@@ -171,11 +212,14 @@ public class LutinBehavior : MonoBehaviour
                 // Handle going backstage logic
                 if (Vector3.Distance(transform.position, startRushPos) <= distancehreshold)
                 {
+                    isRushingBackStage = true;
                     follow.Speed = 600.0f; // Increase speed for rush
                     anim.SetBool("IsCarrying", false);
+                    giftShelf.ReturnGift(this);
                 }
                 else if (Vector3.Distance(transform.position, endRudhPos) <= distancehreshold)
                 {
+                    isRushingBackStage = false;
                     follow.Speed = startSpeed; // Reset speed after rush
                 }
                 else if (Vector3.Distance(transform.position, deskPos) <= distancehreshold)
@@ -203,5 +247,6 @@ public class LutinBehavior : MonoBehaviour
             default:
                 break;
         }
+        PlayWalkingSound();
     }
 }

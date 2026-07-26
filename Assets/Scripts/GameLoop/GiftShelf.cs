@@ -76,4 +76,77 @@ public class GiftShelf : MonoBehaviour
 		gift.transform.position = poolPosition.position;
 		giftPool.Enqueue(gift);
 	}
+
+	public void GiveImpGift(LutinBehavior lutin, Vector2Int order)
+	{
+		if (lutin.lutinType == LutinBehavior.LutinType.Giselle)
+		{
+            order.y = order.y + 1;
+            if (order.y > 3) order.y = 0;
+        }
+
+        GameObject gift = GetGiftAtCase(order.x, order.y);
+        RemoveGiftFromCase(order.x, order.y);
+        gift.transform.SetParent(lutin.giftAnchor.transform);
+        gift.transform.localPosition = Vector3.zero;
+
+        switch (lutin.lutinType)
+        {
+            case LutinBehavior.LutinType.Bob:
+				for(int i = 0; i < 4; i++)
+				{
+					SwapGift(order.x, i, order.x, Random.Range(0, 4));
+                }
+                break;
+            case LutinBehavior.LutinType.Didier:
+				for (int i = 0; i < 4; i++)
+				{
+					for(int j = 0; j < 4; j++)
+                    {
+                        SwapGift(i, j, Random.Range(0, 4), Random.Range(0, 4));
+                    }
+                }
+                break;
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+			for (int j = 0; j < 4; j++)
+			{
+				if (giftPlaceholders[i, j].Gift == null)
+				{
+					for(int x = i; x > 0; x--)
+					{
+						SwapGift(x, j, x - 1, j);
+					}
+				}
+            }
+        }
+    }
+
+	public void ReturnGift(LutinBehavior lutin)
+	{
+		if (lutin.giftAnchor.transform.childCount == 0) return;
+        GameObject gift = lutin.giftAnchor.transform.GetChild(0).gameObject;
+		gift.transform.SetParent(null, true);
+
+        ReturnGiftToPool(gift);
+
+
+        for (int i = 0; i < 4; i++)
+		{
+			for (int j = 0; j < 4; j++)
+			{
+				if (giftPlaceholders[i, j].Gift == null)
+				{
+					if(giftPool.Count > 0)
+					{
+                        giftPlaceholders[i, j].SetGift(giftPool.Dequeue());
+                    }
+                }
+
+            }
+		}
+	}
+	
 }
