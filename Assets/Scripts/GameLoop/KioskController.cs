@@ -79,6 +79,7 @@ public class KioskController : MonoBehaviour
                 Camera.transform.Rotate(new Vector2(0, -90));
             }
         }
+        UpdateHelperText();
     }
 
     public void CloseLetter()

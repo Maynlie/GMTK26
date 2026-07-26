@@ -44,6 +44,7 @@ public class GameManager : Singleton<GameManager>
 	public void SuccesDelivery()
 	{
 		score++;
+		kioskController.UpdateScoreUI();
 	}
 
 
