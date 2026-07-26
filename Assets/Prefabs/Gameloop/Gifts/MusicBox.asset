@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3f4ec07b763904d80eb46397fc5731, type: 3}
   m_Name: MusicBox
   m_EditorClassIdentifier: Assembly-CSharp::Gift
-  letters: []
   prefabs: {fileID: 5276307704145454740, guid: 123d473d110c46242a5e0253a7d84242, type: 3}
+  giftId: 8

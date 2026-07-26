@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e749f2b7d7bc244ac0f5a2749ac2ee, type: 3}
   m_Name: QuadsRoller
   m_EditorClassIdentifier: Assembly-CSharp::LetterData
+  giftId: 11
   contentList:
   - I hope your sleigh is almost ready for Christmas Eve!  I wish to be fast as your
     sleigh with rollers!

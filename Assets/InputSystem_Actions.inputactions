@@ -16,18 +16,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "GiveOrder[DEBUG]",
+                    "name": "GetInfo",
                     "type": "Button",
-                    "id": "7826c4b3-b38e-44ac-8d7f-358a86fddf7a",
+                    "id": "f1f49797-2cd7-4f4e-a5fa-cfb1ac8fa910",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "GetInfo",
+                    "name": "GrabLetter",
                     "type": "Button",
-                    "id": "f1f49797-2cd7-4f4e-a5fa-cfb1ac8fa910",
+                    "id": "72e04a0b-ff47-45ab-ad64-e94964d94fcf",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -70,23 +70,23 @@
                 },
                 {
                     "name": "",
-                    "id": "e1277922-ade7-4603-a003-d94b40467ecd",
-                    "path": "<Keyboard>/o",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "GiveOrder[DEBUG]",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "3ceef4ae-27ea-4b60-ae28-284899438cdc",
                     "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "GetInfo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "66e75205-376f-4297-9343-c88ab6fd0355",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GrabLetter",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

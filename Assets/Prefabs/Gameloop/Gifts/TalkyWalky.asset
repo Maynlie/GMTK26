@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3f4ec07b763904d80eb46397fc5731, type: 3}
   m_Name: TalkyWalky
   m_EditorClassIdentifier: Assembly-CSharp::Gift
-  letters: []
   prefabs: {fileID: 4755158899109221529, guid: 237e1756b9dcdf04ea81bc39bd78b111, type: 3}
+  giftId: 13

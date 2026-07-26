@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e749f2b7d7bc244ac0f5a2749ac2ee, type: 3}
   m_Name: Plush
   m_EditorClassIdentifier: Assembly-CSharp::LetterData
+  giftId: 10
   contentList:
   - I hope you're doing well.  I would like a plushy for Christmas this year. Thanks.
   - I hope you're doing well, Santa. This Christmas, I would be so happy to welcome

@@ -85,7 +85,76 @@ public class GiftShelf : MonoBehaviour
             if (order.y > 3) order.y = 0;
         }
 
+		int id = 0;
+
         GameObject gift = GetGiftAtCase(order.x, order.y);
+		if (gift.name == "Boardgames(Clone)")
+		{
+			id = 0;
+		}
+		else if(gift.name == "Book(Clone)")
+		{
+            id = 1;
+        }
+        else if (gift.name == "Car(Clone)")
+        {
+            id = 2;
+        }
+        else if (gift.name == "Console(Clone)")
+        {
+            id = 5;
+        }
+        else if (gift.name == "Doll(Clone)")
+        {
+            id = 4;
+        }
+        else if (gift.name == "Hammer(Clone)")
+        {
+            id = 6;
+        }
+        else if (gift.name == "Lego(Clone)")
+        {
+            id = 7;
+        }
+        else if (gift.name == "MusicBox(Clone)")
+        {
+            id = 8;
+        }
+        else if (gift.name == "Piano(Clone)")
+        {
+            id = 9;
+        }
+        else if (gift.name == "Plush(Clone)")
+        {
+            id = 10;
+        }
+        else if (gift.name == "Quad(Clone)")
+        {
+            id = 11;
+        }
+        else if (gift.name == "SoccerBall(Clone)")
+        {
+            id = 12;
+        }
+        else if (gift.name == "Talky(Clone)")
+        {
+            id = 13;
+        }
+        else if (gift.name == "Triceratops(Clone)")
+        {
+            id = 3;
+        }
+        else if (gift.name == "TrojanHelmet(Clone)")
+        {
+            id = 14;
+        }
+        else if (gift.name == "TruckerHat(Clone)")
+        {
+            id = 15;
+        }
+
+		lutin.SetReceivedGiftId(id);
+
         RemoveGiftFromCase(order.x, order.y);
         gift.transform.SetParent(lutin.giftAnchor.transform);
         gift.transform.localPosition = Vector3.zero;
@@ -147,6 +216,7 @@ public class GiftShelf : MonoBehaviour
 
             }
 		}
+		lutin.CheckSuccessDelivery();
 	}
 	
 }

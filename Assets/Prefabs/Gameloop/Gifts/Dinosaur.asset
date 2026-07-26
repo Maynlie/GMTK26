@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3f4ec07b763904d80eb46397fc5731, type: 3}
   m_Name: Dinosaur
   m_EditorClassIdentifier: Assembly-CSharp::Gift
-  letters: []
   prefabs: {fileID: 6180415827492270305, guid: 5ff8b8217e545c94ba9135ca6bb09430, type: 3}
+  giftId: 3

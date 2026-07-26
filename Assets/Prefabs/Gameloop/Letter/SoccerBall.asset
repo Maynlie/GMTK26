@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e749f2b7d7bc244ac0f5a2749ac2ee, type: 3}
   m_Name: SoccerBall
   m_EditorClassIdentifier: Assembly-CSharp::LetterData
+  giftId: 12
   contentList:
   - I hope you and your reindeer are doing okay!  I need a new soccer ballon to play
     in my garden, the last one is blocked on neighbour's rooftop. You're wonderful.

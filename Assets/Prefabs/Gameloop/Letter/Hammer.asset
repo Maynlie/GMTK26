@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e749f2b7d7bc244ac0f5a2749ac2ee, type: 3}
   m_Name: Hammer
   m_EditorClassIdentifier: Assembly-CSharp::LetterData
+  giftId: 6
   contentList:
   - I hope Mrs. Claus and the elves are doing well!  I broke my hammer this year.
     Could you please bring me another one?

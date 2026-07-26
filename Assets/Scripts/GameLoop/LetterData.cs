@@ -6,5 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Letter", menuName = "GMTK/Letter")]
 public class LetterData : ScriptableObject
 {
-	public List<string> contentList = new List<string>();
+    [SerializeField] int giftId;
+    public List<string> contentList = new List<string>();
+
+    public int GetID() { return giftId; }
 }

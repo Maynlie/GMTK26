@@ -9,6 +9,9 @@ public class LetterTable : MonoBehaviour
 	[SerializeField] GameObject[] lettersObject;
 	[SerializeField] GameObject letterPrefab;
 
+	float respawnTimer = 0;
+	bool respawn = false;
+	int respawnId;
 
 	void Start()
     {
@@ -24,12 +27,37 @@ public class LetterTable : MonoBehaviour
     {
 		GameObject anchor = lettersAnchor[anchorID];
 		lettersObject[anchorID] =  Instantiate(letterPrefab, anchor.transform.position, anchor.transform.rotation, anchor.transform);
-	}
+
+    }
 
     public void RemoveLetter(int anchorID)
     {
 		GameObject letter = lettersObject[anchorID];
 		lettersObject[anchorID] = null;
 		Destroy(letter);
+
+		respawnTimer = 0.5f;
+		respawn = true;
+		respawnId = anchorID;
+
+    }
+
+	public GameObject GetLetter(int anchorID)
+	{
+		return lettersObject[anchorID];
 	}
+
+    private void Update()
+    {
+		if (respawn) 
+		{
+			respawnTimer -= Time.deltaTime;
+			if(respawnTimer < 0)
+			{
+				SpawnLetter(respawnId);
+				respawn = false;
+			}
+		}
+        
+    }
 }

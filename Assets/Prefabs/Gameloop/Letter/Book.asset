@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e749f2b7d7bc244ac0f5a2749ac2ee, type: 3}
   m_Name: Book
   m_EditorClassIdentifier: Assembly-CSharp::LetterData
+  giftId: 1
   contentList:
   - I hope you're having fun preparing Christmas!  I definitely need to read this
     book from my favorite anime. Could you bring it? Thanks!

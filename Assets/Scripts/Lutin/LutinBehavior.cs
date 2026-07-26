@@ -47,6 +47,9 @@ public class LutinBehavior : MonoBehaviour
     bool isRushingBackStage = false;
     int indexWalkingClip = 0;
 
+    int orderGiftId;
+    int receivedGiftId;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -95,8 +98,9 @@ public class LutinBehavior : MonoBehaviour
         return currentState;
     }
 
-    public void ReceiveOrder(Vector2Int order)
+    public void ReceiveOrder(Vector2Int order, int giftId)
     {
+        orderGiftId = giftId;
         giftPosition = order;
         currentState = LutinState.GoingToShelves; 
         follow.IsMove = true;
@@ -135,6 +139,11 @@ public class LutinBehavior : MonoBehaviour
             giftShelf.GiveImpGift(this, giftPosition);
         }
         
+    }
+
+    public void SetReceivedGiftId(int id)
+    {
+        receivedGiftId = id;
     }
 
     void OtherImpDetected()
@@ -176,6 +185,14 @@ public class LutinBehavior : MonoBehaviour
                 walkSource.clip = walking[indexWalkingClip];
                 walkSource.Play();
             }
+        }
+    }
+
+    public void CheckSuccessDelivery()
+    {
+        if(orderGiftId == receivedGiftId)
+        {
+            GameManager.Instance.SuccesDelivery();
         }
     }
 

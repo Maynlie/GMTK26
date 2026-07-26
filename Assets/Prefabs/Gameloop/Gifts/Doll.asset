@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3f4ec07b763904d80eb46397fc5731, type: 3}
   m_Name: Doll
   m_EditorClassIdentifier: Assembly-CSharp::Gift
-  letters: []
   prefabs: {fileID: 127738030909513960, guid: 70315f30321cf3e45832f3a91ad3a758, type: 3}
+  giftId: 4

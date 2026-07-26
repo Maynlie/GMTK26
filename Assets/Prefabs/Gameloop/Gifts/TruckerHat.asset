@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3f4ec07b763904d80eb46397fc5731, type: 3}
   m_Name: TruckerHat
   m_EditorClassIdentifier: Assembly-CSharp::Gift
-  letters: []
   prefabs: {fileID: 8743863576575552913, guid: a2fba4a5184184a46997bf932e61484c, type: 3}
+  giftId: 15

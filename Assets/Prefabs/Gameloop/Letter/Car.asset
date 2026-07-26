@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e749f2b7d7bc244ac0f5a2749ac2ee, type: 3}
   m_Name: Car
   m_EditorClassIdentifier: Assembly-CSharp::LetterData
+  giftId: 2
   contentList:
   - I hope you are having a great day at the North Pole!  Could you please send me
     a new Car? Cheers.

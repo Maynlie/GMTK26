@@ -64,6 +64,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cbd3552ffeb1f9645ae11dc971996b78, type: 2}
   - {fileID: 11400000, guid: 5e196ee7ca6e57a468ed7013418868b1, type: 2}
   - {fileID: 11400000, guid: d27f4e210114b174dbb63dc4ddffd9b8, type: 2}
+  - {fileID: 11400000, guid: fc51b8a269db3da4b8fc95033d8c414f, type: 2}
+  lutins:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  selectedGift: {fileID: 0}
+  selectedToogle: 
+  kioskController: {fileID: 0}
 --- !u!114 &9222663922951384312
 MonoBehaviour:
   m_ObjectHideFlags: 0

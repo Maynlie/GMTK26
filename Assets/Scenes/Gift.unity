@@ -644,6 +644,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cbd3552ffeb1f9645ae11dc971996b78, type: 2}
   - {fileID: 11400000, guid: 5e196ee7ca6e57a468ed7013418868b1, type: 2}
   - {fileID: 11400000, guid: d27f4e210114b174dbb63dc4ddffd9b8, type: 2}
+  lutins: []
+  selectedGift: {fileID: 0}
+  selectedToogle: 
+  kioskController: {fileID: 0}
 --- !u!4 &1633880698
 Transform:
   m_ObjectHideFlags: 0
@@ -675,7 +679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2370741111915734265, guid: a47dc125bf1c93f40a58338a4cf28039, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3478744071589042713, guid: a47dc125bf1c93f40a58338a4cf28039, type: 3}
       propertyPath: gifts.Array.size
@@ -914,6 +918,10 @@ PrefabInstance:
     - target: {fileID: 4131744747140247440, guid: 3498cddcbeaf4d24db61ca8c96282cec, type: 3}
       propertyPath: m_Name
       value: LetterUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4131744747140247440, guid: 3498cddcbeaf4d24db61ca8c96282cec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6886305120807488231, guid: 3498cddcbeaf4d24db61ca8c96282cec, type: 3}
       propertyPath: m_Camera

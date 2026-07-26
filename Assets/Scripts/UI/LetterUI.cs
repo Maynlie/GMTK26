@@ -8,7 +8,6 @@ using Random = UnityEngine.Random;
 
 public class LetterUI : MonoBehaviour
 {
-    bool flip = false;
     Quaternion toFlip;
     [SerializeField]float rotationSpeed = 180f;
 
@@ -29,12 +28,13 @@ public class LetterUI : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, toFlip, rotationSpeed * Time.deltaTime);
+        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, toFlip, rotationSpeed * Time.deltaTime);
 	}
 
     public void Flip()
     {
-        if(transform.rotation == Quaternion.Euler(0, 180, 0))
+		
+        if(transform.localRotation == Quaternion.Euler(0, 180, 0))
 			toFlip = Quaternion.Euler(0, 0, 0);
 		else
 			toFlip = Quaternion.Euler(0, 180, 0);
@@ -59,7 +59,23 @@ public class LetterUI : MonoBehaviour
 					toggle.isOn = false;
 				}
 			}
-		}
-		GameManager.Instance.selectedToogle = toogleID;
+            
+        }
+		if(GameManager.Instance.selectedToogle == toogleID)
+		{
+			GameManager.Instance.selectedToogle = "";
+        }
+		else
+		{
+            GameManager.Instance.selectedToogle = toogleID;
+        }
+    }
+
+	public void SendLetter()
+	{
+		if(GameManager.Instance.selectedToogle != "")
+		{
+            GameManager.Instance.AssignOrderToLutin();
+        }
 	}
 }

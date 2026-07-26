@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e749f2b7d7bc244ac0f5a2749ac2ee, type: 3}
   m_Name: MusicBox
   m_EditorClassIdentifier: Assembly-CSharp::LetterData
+  giftId: 8
   contentList:
   - I hope you are not too busy getting all the presents ready!  This year for Christmas,
     I wish a music box please.

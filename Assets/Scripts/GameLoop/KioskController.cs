@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using TMPro;
 
 public class KioskController : MonoBehaviour
 {
@@ -13,8 +14,8 @@ public class KioskController : MonoBehaviour
 
     private Position currentPosition = Position.Center;
     public InputActionReference MoveDirectionAction;
-    public InputActionReference GiveOrderAction;
     public InputActionReference GetInfoAction;
+    public InputActionReference GrabLetterAction;
     public Camera Camera;
     public LutinBehavior[] lutins;
     public GameObject ImpInfos;
@@ -24,21 +25,35 @@ public class KioskController : MonoBehaviour
     public AudioClip[] ohoh;
 
     float thinkTimer = 0f;
-    float thinkCooldown = 5f;
+    float thinkCooldown = 45f;
+
+    public LayerMask rayLayer;
+    public LetterTable table;
+    int letterIndex;
+
+    public GameObject letterUIAnchor;
+    public GameObject letterUIPrefab;
+
+    bool letterOpenned = false;
+
+    public TextMeshProUGUI scoreTxt;
+    public TextMeshProUGUI helperTxt;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         MoveDirectionAction.action.performed += MovePOV;
-        GiveOrderAction.action.performed += GiveOrder;
         GetInfoAction.action.performed += GetInfo;
+        GrabLetterAction.action.performed += GrabLetter;
+
+        GameManager.Instance.SetLutins(lutins, this);
     }
 
     private void OnDisable()
     {
         MoveDirectionAction.action.performed -= MovePOV;
-        GiveOrderAction.action.performed -= GiveOrder;
         GetInfoAction.action.performed -= GetInfo;
+        GrabLetterAction.action.performed -= GrabLetter;
     }
 
     private void MovePOV(InputAction.CallbackContext context)
@@ -66,18 +81,32 @@ public class KioskController : MonoBehaviour
         }
     }
 
-    private void GiveOrder(InputAction.CallbackContext context)
+    public void CloseLetter()
     {
-        if(Time.timeScale == 0) return; // Do not give orders if the game is paused
-        foreach (LutinBehavior lut in lutins)
+        source.clip = ohoh[Random.Range(0, ohoh.Length)];
+        source.Play();
+        GameObject.Destroy(letterUIAnchor.transform.GetChild(0).gameObject);
+        letterOpenned = false;
+    }
+
+    public void UpdateScoreUI()
+    {
+        scoreTxt.text = "Score: " + GameManager.Instance.GetScore();
+    }
+
+    public void UpdateHelperText()
+    {
+        switch (currentPosition)
         {
-            if(lut.GetCurrentState() == LutinBehavior.LutinState.WaitingForOrder)
-            {
-                lut.ReceiveOrder(new Vector2Int(1, 1)); // Example order, replace with actual logic
-                source.clip = ohoh[Random.Range(0, ohoh.Length)];
-                source.Play();
-                thinkTimer = 0f;
-            }
+            case Position.Left:
+                helperTxt.text = "L: Grab a letter";
+                break;
+            case Position.Center:
+                helperTxt.text = "I : Open/Close Imp Info";
+                break;
+            case Position.Right:
+                helperTxt.text = "";
+                break;
         }
     }
 
@@ -86,6 +115,22 @@ public class KioskController : MonoBehaviour
         if (Time.timeScale == 0) return;
         if (currentPosition != Position.Center) return;
         ImpInfos.SetActive(!ImpInfos.activeSelf);
+    }
+
+    private void GrabLetter(InputAction.CallbackContext context)
+    {
+        if(letterOpenned) return;
+        if (Time.timeScale == 0) return;
+        if (currentPosition != Position.Left) return;
+        table.RemoveLetter(letterIndex);
+        letterIndex++;
+        if (letterIndex >= 8)
+        {
+            letterIndex = 0;
+        }
+
+        Instantiate(letterUIPrefab, Vector3.zero, Quaternion.Euler(Vector3.zero), letterUIAnchor.transform).transform.localPosition = Vector3.zero;
+        letterOpenned = true;
     }
 
     // Update is called once per frame
@@ -100,6 +145,8 @@ public class KioskController : MonoBehaviour
                 source.Play();
             }
             thinkTimer = 0f;
-        }   
+        }
+
+        
     }
 }

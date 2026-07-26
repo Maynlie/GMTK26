@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using static Unity.VisualScripting.Member;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -11,8 +12,12 @@ public class GameManager : Singleton<GameManager>
 	bool inGame = false;
 
 	[SerializeField] LetterData[] letterData;
-	public LetterData selectedGift;
+    public LutinBehavior[] lutins;
+    public LetterData selectedGift;
 	public string selectedToogle;
+	public KioskController kioskController;
+
+	int score = 0;
 
 	#region Properties
 
@@ -33,6 +38,13 @@ public class GameManager : Singleton<GameManager>
 
 	public float GetGameTime() { return gameTime; }
 	public float GetSTartTime() { return startTime; }
+
+	public int GetScore() { return score; }
+
+	public void SuccesDelivery()
+	{
+		score++;
+	}
 
 
     public void SetInGame(bool value) {
@@ -72,5 +84,34 @@ public class GameManager : Singleton<GameManager>
 	{
 		return selectedGift;
 	}
+
+	public void SetLutins(LutinBehavior[] l, KioskController k)
+	{
+		int index = 0;
+        foreach(LutinBehavior lu in l)
+		{
+			lutins[index] = lu;
+			index++;
+		}
+		kioskController = k;
+	}
+
+	public void AssignOrderToLutin()
+	{
+        if (Time.timeScale == 0) return; // Do not give orders if the game is paused
+        char firstChar = selectedToogle.ToCharArray()[0];
+        char secondtChar = selectedToogle.ToCharArray()[1];
+		int firstPos = firstChar - '0' - 1;
+		int secondPos = secondtChar - 'A' ;
+         foreach (LutinBehavior lut in lutins)
+        {
+            if (lut.GetCurrentState() == LutinBehavior.LutinState.WaitingForOrder)
+            {
+				kioskController.CloseLetter();
+                lut.ReceiveOrder(new Vector2Int(firstPos, secondPos), selectedGift.GetID());
+				RandomGift();
+            }
+        }
+    }
 
 }

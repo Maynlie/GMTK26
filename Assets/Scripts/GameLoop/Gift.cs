@@ -9,6 +9,10 @@ public class Gift : ScriptableObject
 	/// Mesh corresponding to the gift with script or another. 
 	/// </summary>
 	[SerializeField] GameObject prefabs;
+	[SerializeField] int giftId;
 
-	public GameObject Prefabs { get => prefabs; }	
+
+	public GameObject Prefabs { get => prefabs; }
+
+	public int GetID() {  return giftId; }
 }
